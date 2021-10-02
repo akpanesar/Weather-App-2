@@ -25,64 +25,64 @@
   <body>
     <div class="container navBar">
       <!-- start of navBar-->
-      <div class="row">
-        <div class="col-6">
-<form id="search-form" class="mb-3">           
-        <input
+      <form id="search-form" class="mb-3">        
+        <div class="row">
+          <div class="col-6">   
+            <input
         type="search"
         placeholder="Enter city name"
         class="form-control"
         id="city-input"
         autocomplete="off"
         />
-</form>
-</div>
-        <div class="col-3">
-        <input
+        </div>
+             <div class="col-3">
+           <input
         type="submit"
         value="Search"
         class="btn btn-outline-secondary"
         />         
-</div>
+        </div>
+        </form>
       <div class="col-3 locationButton">
-      <button type="button" class="btn btn-outline-secondary">
-            Current City
-      </button>
+        <button type="button" class="btn btn-outline-secondary">
+          Current City
+        </button>
       </div>
-      </div>
+    </div>
     <!-- end of navBar-->
     </div>
     <hr/>
     <!-- start of appBody1 city, date&time, temp-->
     <div class="container appBody">
       <section class="heading">
-        <h1 id="citySearch">London, UK</h1>
-        <h5 id="today">Monday, 06 September 12:54 PM</h5>
+        <h1 id="citySearch"></h1>
+        <h5 id="today"></h5>
         </section>
       <br />  
       <div class="row">
       <div class="col">
 <div class="d-flex justify-content-center accuWeather">
-<img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" id="weatherIcon"/> 
-<div><span class="mr-10" id="currentTemperature">22</span><span class="units"><a href="#" id="celsiusLink">°C</a>  |  <a href="#" id="fahrenheitLink">°F</a></span>
+<img src="" id="weatherIcon"/> 
+<div><span class="mr-10" id="currentTemperature"></span><span class="units"><a href="#" id="celsiusLink">°C</a>  |  <a href="#" id="fahrenheitLink">°F</a></span>
 </div></div></div>
-<span id="realFeel">Feels like</span>
-<h5 id="weatherDescription">Description</h5>
+<span id="realFeel"></span>
+<h5 id="weatherDescription"></h5>
 </div>      
       <!-- end of appBody1 city, date&time, temp-->
       <!-- start of appBody2 other weather descriptors-->
       <div class="row">
         <div class="col-4 descriptor">
           High <br />
-          <span class="description" id="highTemp">26°C</span>
+          <span class="description" id="highTemp"></span>
         </div>
         <div class="col-4 descriptor">
           Wind <br />
-          <span class="description" id="windSpeed">2 mph </span>
+          <span class="description" id="windSpeed"></span>
         </div>
         <div class="col-4 descriptor">
           Sunrise <br />
-          <span class="description" id="sunrise">6:20 AM</span>
+          <span class="description" id="sunrise"></span>
         </div>
         <div class="row"></div>
         <br />
@@ -90,17 +90,16 @@
         <div class="col-4 descriptor">
           Low
           <br /><span class="description" id="lowTemp">
-            17°C
-          </span>
+             </span>
         </div>
         <div class="col-4 descriptor">
           Humidity <br />
-          <span class="description" id="humidity">77% </span>
+          <span class="description" id="humidity"></span>
         </div>
         <div class="col-4 descriptor">
           Sunset
           <br />
-          <span class="description" id="sunset"> 7:37 PM</span>
+          <span class="description" id="sunset"></span>
         </div>
       </div>
     </div><!-- end of appBody2 other weather descriptors-->
