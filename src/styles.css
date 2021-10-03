@@ -6,8 +6,9 @@ body {
 }
 img {
   margin-right: 15px;
-  height: 75px;
-  width: 75px;
+  height: 90px;
+  width: 90px;
+  filter: brightness(174%);
 }
 
 .navBar {
@@ -17,16 +18,16 @@ img {
 .appBody {
   text-align: center;
   color: #4f5253;
-  background: radial-gradient(
-    circle at 18.7% 37.8%,
-    rgb(250, 250, 250) 0%,
-    rgb(225, 234, 238) 90%
+  background: linear-gradient(
+    109.6deg,
+    rgb(245, 239, 249) 30.1%,
+    rgb(207, 211, 236) 100.2%
   );
   max-width: 800px;
   display: block;
   margin: 30px auto;
   padding: 30px;
-  box-shadow: 9px 9px 5px #7c7a7a;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   height: auto;
   color: #4f5253;
@@ -54,6 +55,16 @@ img {
   font-size: 16px;
   top: -24px;
 }
+
+.active {
+  color: #4f5253;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+}
+
 .descriptor {
   padding: 1rem;
   text-align: center;

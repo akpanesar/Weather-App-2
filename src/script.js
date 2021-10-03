@@ -46,15 +46,18 @@ function formatTime(timestamp) {
 }
 
 function showWeather(response) {
-  console.log(response.data);
+  celsiusTemperature = response.data.main.temp;
+  celsiusTemperatureHigh = response.data.main.temp_max;
+  celsiusTemperatureLow = response.data.main.temp_min;
+
   let city = response.data.name;
   let country = response.data.sys.country;
-  let tempC = Math.round(response.data.main.temp);
+  let tempC = Math.round(celsiusTemperature);
   let realF = Math.round(response.data.main.feels_like);
   let description = response.data.weather[0].description;
-  let hTemp = Math.round(response.data.main.temp_max);
+  let hTemp = Math.round(celsiusTemperatureHigh);
   let windSpeed = Math.round(response.data.wind.speed);
-  let lTemp = Math.round(response.data.main.temp_min);
+  let lTemp = Math.round(celsiusTemperatureLow);
   let humidity = response.data.main.humidity;
   let weather_icon = response.data.weather[0].icon;
 
@@ -73,12 +76,12 @@ function showWeather(response) {
 
   cityElement.innerHTML = `${city}, ${country}`;
   temperatureElement.innerHTML = `${tempC}`;
-  realFeelElement.innerHTML = `Real Feel ${realF}`;
+  realFeelElement.innerHTML = `Real Feel ${realF}°`;
   descriptionElement.innerHTML = `${description}`;
-  highTempElement.innerHTML = `${hTemp}`;
-  windElement.innerHTML = `${windSpeed}`;
+  highTempElement.innerHTML = `${hTemp}°`;
+  windElement.innerHTML = `${windSpeed} mps`;
   sunriseElement.innerHTML = formatTime(response.data.sys.sunrise * 1000);
-  lowTempElement.innerHTML = `${lTemp}`;
+  lowTempElement.innerHTML = `${lTemp}°`;
   humidityElement.innerHTML = `${humidity}%`;
   sunsetElement.innerHTML = formatTime(response.data.sys.sunset * 1000);
   weatherIcon.setAttribute(
@@ -116,5 +119,48 @@ function showLocationTemperature(event) {
 }
 let currentLocationButton = document.querySelector(".locationButton");
 currentLocationButton.addEventListener("click", showLocationTemperature);
+
+let celsiusTemperature = null;
+let celsiusTemperatureHigh = null;
+let celsiusTemperatureLow = null;
+
+function changeFahrenheitTemp(event) {
+  event.preventDefault();
+  celsiusClick.classList.remove("active");
+  fahrenheitClick.classList.add("active");
+
+  let temperatureElement = document.querySelector("#currentTemperature");
+  let highTElement = document.querySelector("#highTemp");
+  let lowTElement = document.querySelector("#lowTemp");
+  let tempF = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let tempFH = Math.round((celsiusTemperatureHigh * 9) / 5 + 32);
+  let tempFL = Math.round((celsiusTemperatureLow * 9) / 5 + 32);
+  temperatureElement.innerHTML = `${tempF}`;
+  highTElement.innerHTML = `${tempFH}°`;
+  lowTElement.innerHTML = `${tempFL}°`;
+}
+
+function changeCelsiusTemp(event) {
+  event.preventDefault();
+
+  celsiusClick.classList.add("active");
+  fahrenheitClick.classList.remove("active");
+
+  let temperatureElement = document.querySelector("#currentTemperature");
+  let highTElement = document.querySelector("#highTemp");
+  let lowTElement = document.querySelector("#lowTemp");
+  let tempC = Math.round(celsiusTemperature);
+  let tempCH = Math.round(celsiusTemperatureHigh);
+  let tempCL = Math.round(celsiusTemperatureLow);
+  temperatureElement.innerHTML = `${tempC}`;
+  highTElement.innerHTML = `${tempCH}°`;
+  lowTElement.innerHTML = `${tempCL}°`;
+}
+
+let fahrenheitClick = document.querySelector("#fahrenheitLink");
+fahrenheitClick.addEventListener("click", changeFahrenheitTemp);
+
+let celsiusClick = document.querySelector("#celsiusLink");
+celsiusClick.addEventListener("click", changeCelsiusTemp);
 
 search("London");
