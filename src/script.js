@@ -46,6 +46,7 @@ function formatTime(timestamp) {
 }
 
 function showWeather(response) {
+  console.log(response);
   celsiusTemperature = response.data.main.temp;
   celsiusTemperatureHigh = response.data.main.temp_max;
   celsiusTemperatureLow = response.data.main.temp_min;
@@ -60,6 +61,7 @@ function showWeather(response) {
   let lTemp = Math.round(celsiusTemperatureLow);
   let humidity = response.data.main.humidity;
   let weather_icon = response.data.weather[0].icon;
+  let bgImage = response.data.weather[0].main;
 
   let cityElement = document.querySelector("#citySearch");
   let temperatureElement = document.querySelector("#currentTemperature");
@@ -73,6 +75,7 @@ function showWeather(response) {
   let sunsetElement = document.querySelector("#sunset");
   let weatherIcon = document.querySelector("#weatherIcon");
   let currentDate = document.querySelector("#today");
+  let bgImageElement = document.querySelector("body");
 
   cityElement.innerHTML = `${city}, ${country}`;
   temperatureElement.innerHTML = `${tempC}`;
@@ -89,6 +92,7 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${weather_icon}@2x.png`
   );
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+  bgImageElement.classList.add(`${bgImage}`);
 }
 
 function search(city) {
