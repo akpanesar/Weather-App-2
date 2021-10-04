@@ -23,7 +23,7 @@
 
   </head>
   <body>
-    <div class="container navBar">
+    <div class="container navBar ">
       <!-- start of navBar-->
       <form id="search-form" class="mb-3">        
         <div class="row">
@@ -61,15 +61,21 @@
         </section>
       <br />  
       <div class="row">
-      <div class="col">
+      <div class="col-6">
 <div class="d-flex justify-content-center accuWeather">
 <img src="" id="weatherIcon"/> 
 <div><span class="mr-10" id="currentTemperature"></span>
   <span class="units"><a href="#" id="celsiusLink" class="active">°C
-
-  </a>   |   <a href="#" id="fahrenheitLink">°F</a></span>
+ </a>   |   <a href="#" id="fahrenheitLink">°F</a></span>
+  <div id="weatherDescription"> </div>
 </div></div></div>
-<span id="realFeel"> </span>     <span id="weatherDescription"></span>
+<div class="col-6">
+<span id="realFeel"> </span> 
+
+
+
+
+</div>
 </div>      
       <!-- end of appBody1 city, date&time, temp-->
       <!-- start of appBody2 other weather descriptors-->

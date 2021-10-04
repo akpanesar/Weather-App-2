@@ -92,6 +92,7 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${weather_icon}@2x.png`
   );
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+  bgImageElement.classList = "";
   bgImageElement.classList.add(`${bgImage}`);
 }
 
